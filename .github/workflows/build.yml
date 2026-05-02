@@ -21,14 +21,13 @@ jobs:
       - name: Set version
         run: echo "VERSION=v${{ github.run_number }}" >> $GITHUB_ENV
 
-      # 2. Build image
       - name: Build Docker image
         run: |
-          docker build -t achrafdardour/simple-app:${VERSION} .
+          docker build -t achrafdardour/simple-app:${VERSION} ./simple-app
 
       - name: Push Docker image
         run: |
-          docker push achrafdardour/simple-app:${VERSION}
+          docker push achrafdardour/simple-app:${VERSION} 
 
       - name: Update Kubernetes manifest
         run: |
