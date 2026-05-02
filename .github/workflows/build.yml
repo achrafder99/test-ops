@@ -27,7 +27,7 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push achrafdardour/simple-app:${VERSION} 
+          docker push achrafdardour/simple-app:${VERSION}
 
       - name: Update Kubernetes manifest
         run: |
@@ -40,4 +40,6 @@ jobs:
 
           git add k8s/deployment.yaml
           git commit -m "update image to ${VERSION}" || echo "no changes"
+
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/achrafder99/test-ops.git
           git push
