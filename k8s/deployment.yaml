@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: app
-          image: achrafdardour/simple-app:v5
+          image: achrafdardour/simple-app:v6
           ports:
             - containerPort: 80
